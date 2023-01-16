@@ -78,8 +78,22 @@ function BottomTabNavigator() {
         tabBarActiveTintColor: Colors[colorScheme].tint,
       }}
     >
-      <BottomTab.Screen name="Count" component={CountScreen} />
-      <BottomTab.Screen name="List" component={ListScreen} />
+      <BottomTab.Screen
+        name="Count"
+        component={CountScreen}
+        options={({ navigation }: RootTabScreenProps<"Count">) => ({
+          title: "Tab One",
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        })}
+      />
+      <BottomTab.Screen
+        name="List"
+        component={ListScreen}
+        options={({ navigation }: RootTabScreenProps<"List">) => ({
+          title: "Tab One",
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        })}
+      />
     </BottomTab.Navigator>
   );
 }
