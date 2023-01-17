@@ -3,6 +3,7 @@ import { Button, ScrollView, StyleSheet, TextInput } from "react-native";
 import Animated, {
   LightSpeedInLeft,
   FadeInDown,
+  LightSpeedOutRight,
 } from "react-native-reanimated";
 
 import { Text, View } from "../components/Themed";
@@ -22,7 +23,7 @@ const Participant = ({
   return (
     <Animated.View
       entering={LightSpeedInLeft}
-      exiting={FadeInDown}
+      exiting={LightSpeedOutRight}
       style={styles.participantView}
     >
       <Text>{name}</Text>

@@ -29,6 +29,7 @@ export type RootTabParamList = {
   List: undefined;
   Images: undefined;
   Keyframes: undefined;
+  Custom: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> =

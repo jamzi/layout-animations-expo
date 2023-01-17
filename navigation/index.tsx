@@ -22,6 +22,7 @@ import ListScreen from "../screens/ListScreen";
 import { RootStackParamList, RootTabParamList } from "../types";
 import ImagesScreen from "../screens/ImagesScreen";
 import KeyframesScreen from "../screens/KeyframesScreen";
+import CustomScreen from "../screens/CustomScreen";
 
 export default function Navigation({
   colorScheme,
@@ -105,6 +106,14 @@ function BottomTabNavigator() {
         component={KeyframesScreen}
         options={() => ({
           title: "Keyframes",
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        })}
+      />
+      <BottomTab.Screen
+        name="Custom"
+        component={CustomScreen}
+        options={() => ({
+          title: "Custom",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         })}
       />

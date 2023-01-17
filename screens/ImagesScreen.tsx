@@ -21,7 +21,7 @@ const Card = ({
   onDelete: (id: number) => void;
 }) => (
   <Animated.View
-    layout={Layout.duration(200).delay(200)}
+    layout={Layout.springify()}
     entering={FadeInUp}
     exiting={FadeOutDown}
   >
