@@ -12,18 +12,16 @@ import {
 } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as React from "react";
-import { ColorSchemeName, Pressable } from "react-native";
+import { ColorSchemeName } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import CountScreen from "../screens/CountScreen";
 import ListScreen from "../screens/ListScreen";
-import {
-  RootStackParamList,
-  RootTabParamList,
-  RootTabScreenProps,
-} from "../types";
+import { RootStackParamList, RootTabParamList } from "../types";
+import ImagesScreen from "../screens/ImagesScreen";
+import KeyframesScreen from "../screens/KeyframesScreen";
 
 export default function Navigation({
   colorScheme,
@@ -81,16 +79,32 @@ function BottomTabNavigator() {
       <BottomTab.Screen
         name="Count"
         component={CountScreen}
-        options={({ navigation }: RootTabScreenProps<"Count">) => ({
-          title: "Tab One",
+        options={() => ({
+          title: "Count",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         })}
       />
       <BottomTab.Screen
         name="List"
         component={ListScreen}
-        options={({ navigation }: RootTabScreenProps<"List">) => ({
-          title: "Tab One",
+        options={() => ({
+          title: "List",
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        })}
+      />
+      <BottomTab.Screen
+        name="Images"
+        component={ImagesScreen}
+        options={() => ({
+          title: "Images",
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        })}
+      />
+      <BottomTab.Screen
+        name="Keyframes"
+        component={KeyframesScreen}
+        options={() => ({
+          title: "Keyframes",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         })}
       />
