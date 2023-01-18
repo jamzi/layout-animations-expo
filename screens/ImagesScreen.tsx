@@ -41,7 +41,6 @@ export default function ImagesScreen({
   const onDelete = (id: number) => {
     const deleteIndex = cards.findIndex((card) => card.id === id);
     setCards([...cards.slice(0, deleteIndex), ...cards.slice(deleteIndex + 1)]);
-    console.log("cards.length:", cards.length);
     if (cards.length === 1) {
       setCards(defaultValues);
     }
