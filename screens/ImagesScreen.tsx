@@ -21,7 +21,7 @@ const Card = ({
   onDelete: (id: number) => void;
 }) => (
   <Animated.View
-    layout={Layout.delay(200)}
+    layout={Layout.delay(200).springify()}
     entering={FadeInUp}
     exiting={FadeOutDown}
   >
@@ -36,47 +36,15 @@ const Card = ({
 export default function ImagesScreen({
   navigation,
 }: RootTabScreenProps<"Images">) {
-  const [cards, setCards] = useState([
-    {
-      id: 1,
-      title: "Test1",
-      image: "https://picsum.photos/200/300",
-    },
-    {
-      id: 2,
-      title: "Test2",
-      image: "https://picsum.photos/200/301",
-    },
-    {
-      id: 3,
-      title: "Test3",
-      image: "https://picsum.photos/200/302",
-    },
-    {
-      id: 4,
-      title: "Test4",
-      image: "https://picsum.photos/200/303",
-    },
-    {
-      id: 5,
-      title: "Test5",
-      image: "https://picsum.photos/200/304",
-    },
-    {
-      id: 6,
-      title: "Test6",
-      image: "https://picsum.photos/200/305",
-    },
-    {
-      id: 7,
-      title: "Test7",
-      image: "https://picsum.photos/200/306",
-    },
-  ]);
+  const [cards, setCards] = useState(defaultValues);
 
   const onDelete = (id: number) => {
     const deleteIndex = cards.findIndex((card) => card.id === id);
     setCards([...cards.slice(0, deleteIndex), ...cards.slice(deleteIndex + 1)]);
+    console.log("cards.length:", cards.length);
+    if (cards.length === 1) {
+      setCards(defaultValues);
+    }
   };
 
   return (
@@ -102,3 +70,41 @@ const styles = StyleSheet.create({
     height: "100%",
   },
 });
+
+const defaultValues = [
+  {
+    id: 1,
+    title: "Test1",
+    image: "https://picsum.photos/200/300",
+  },
+  {
+    id: 2,
+    title: "Test2",
+    image: "https://picsum.photos/200/301",
+  },
+  {
+    id: 3,
+    title: "Test3",
+    image: "https://picsum.photos/200/302",
+  },
+  {
+    id: 4,
+    title: "Test4",
+    image: "https://picsum.photos/200/303",
+  },
+  {
+    id: 5,
+    title: "Test5",
+    image: "https://picsum.photos/200/304",
+  },
+  {
+    id: 6,
+    title: "Test6",
+    image: "https://picsum.photos/200/305",
+  },
+  {
+    id: 7,
+    title: "Test7",
+    image: "https://picsum.photos/200/306",
+  },
+];
