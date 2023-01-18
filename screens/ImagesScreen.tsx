@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StyleSheet, Text, Image, Button } from "react-native";
+import { StyleSheet, Text, Image, Button, ScrollView } from "react-native";
 import Animated, {
   FadeOutDown,
   FadeInUp,
@@ -21,13 +21,15 @@ const Card = ({
   onDelete: (id: number) => void;
 }) => (
   <Animated.View
-    layout={Layout.springify()}
+    layout={Layout.delay(200)}
     entering={FadeInUp}
     exiting={FadeOutDown}
   >
-    <Image source={{ uri: image }} style={{ height: 200, width: 150 }} />
+    <Image source={{ uri: image }} style={{ height: 200, width: 137 }} />
     <Text>{title}</Text>
-    <Button title="X" onPress={() => onDelete(id)} />
+    <View style={{ position: "absolute", top: 0, right: 0 }}>
+      <Button title="X" onPress={() => onDelete(id)} />
+    </View>
   </Animated.View>
 );
 
@@ -78,25 +80,25 @@ export default function ImagesScreen({
   };
 
   return (
-    <View style={styles.container}>
-      {cards.map(({ image, title, id }) => (
+    <ScrollView contentContainerStyle={styles.container}>
+      {cards.map((item, i) => (
         <Card
-          id={id}
-          image={image}
-          title={title}
-          key={id}
+          key={item.id}
+          id={item.id}
+          image={item.image}
+          title={item.title}
           onDelete={onDelete}
         />
       ))}
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    flexDirection: "row",
+    flexWrap: "wrap",
     backgroundColor: "lightgray",
+    height: "100%",
   },
 });
