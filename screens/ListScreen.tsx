@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, ScrollView, StyleSheet, TextInput } from "react-native";
 import Animated, {
   LightSpeedInLeft,
-  FadeInDown,
+  Layout,
   LightSpeedOutRight,
 } from "react-native-reanimated";
 
@@ -24,6 +24,7 @@ const Participant = ({
     <Animated.View
       entering={LightSpeedInLeft}
       exiting={LightSpeedOutRight}
+      layout={Layout.delay(200)}
       style={styles.participantView}
     >
       <Text>{name}</Text>
