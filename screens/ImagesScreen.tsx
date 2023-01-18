@@ -21,9 +21,9 @@ const Card = ({
   onDelete: (id: number) => void;
 }) => (
   <Animated.View
-    layout={Layout.delay(200).springify()}
-    entering={FadeInUp}
-    exiting={FadeOutDown}
+  // layout={Layout.delay(200).springify()}
+  // entering={FadeInUp.delay(id * 50)}
+  // exiting={FadeOutDown}
   >
     <Image source={{ uri: image }} style={{ height: 200, width: 137 }} />
     <Text>{title}</Text>

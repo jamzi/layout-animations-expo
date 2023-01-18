@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Button, ScrollView, StyleSheet, TextInput } from "react-native";
 import Animated, {
   LightSpeedInLeft,
-  Layout,
   LightSpeedOutRight,
 } from "react-native-reanimated";
 
@@ -22,9 +21,8 @@ const Participant = ({
 }): React.ReactElement => {
   return (
     <Animated.View
-      entering={LightSpeedInLeft}
-      exiting={LightSpeedOutRight}
-      layout={Layout.delay(200)}
+      // entering={LightSpeedInLeft}
+      // exiting={LightSpeedOutRight}
       style={styles.participantView}
     >
       <Text>{name}</Text>
@@ -100,6 +98,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     height: "100%",
     paddingBottom: 30,
+    backgroundColor: "#222",
   },
   bottomRow: {
     width: "100%",

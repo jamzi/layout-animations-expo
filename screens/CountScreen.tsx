@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
-import Animated, { BounceInDown, PinwheelIn } from "react-native-reanimated";
+import Animated, { PinwheelIn } from "react-native-reanimated";
 
 import { View } from "../components/Themed";
 import { RootTabScreenProps } from "../types";
 
-export default function CountScreen({
-  navigation,
-}: RootTabScreenProps<"Count">) {
+export default function CountScreen({}: RootTabScreenProps<"Count">) {
   const [count, setCount] = useState(0);
   return (
     <View style={styles.container}>
