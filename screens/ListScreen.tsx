@@ -21,8 +21,8 @@ const Participant = ({
 }): React.ReactElement => {
   return (
     <Animated.View
-      // entering={LightSpeedInLeft}
-      // exiting={LightSpeedOutRight}
+      entering={LightSpeedInLeft}
+      exiting={LightSpeedOutRight}
       style={styles.participantView}
     >
       <Text>{name}</Text>

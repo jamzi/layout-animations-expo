@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { StyleSheet, Text, Image, Button, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  Image,
+  Button,
+  ScrollView,
+  Dimensions,
+} from "react-native";
 import Animated, {
   FadeOutDown,
   FadeInUp,
@@ -8,6 +15,8 @@ import Animated, {
 
 import { View } from "../components/Themed";
 import { RootTabScreenProps } from "../types";
+
+const windowWidth = Dimensions.get("window").width;
 
 const Card = ({
   id,
@@ -21,11 +30,14 @@ const Card = ({
   onDelete: (id: number) => void;
 }) => (
   <Animated.View
-  // layout={Layout.delay(200).springify()}
-  // entering={FadeInUp.delay(id * 50)}
-  // exiting={FadeOutDown}
+    layout={Layout.delay(200).springify()}
+    entering={FadeInUp.delay(id * 50)}
+    exiting={FadeOutDown}
   >
-    <Image source={{ uri: image }} style={{ height: 200, width: 137 }} />
+    <Image
+      source={{ uri: image }}
+      style={{ height: 200, width: windowWidth / 3 }}
+    />
     <Text>{title}</Text>
     <View style={{ position: "absolute", top: 0, right: 0 }}>
       <Button title="X" onPress={() => onDelete(id)} />
